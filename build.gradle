@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:27.1-jre'
+    implementation group: 'com.extjs', name: 'gxt', version: '2.3.1-gwt22'
+
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+}
+
+test {
+    useJUnitPlatform()
+}
