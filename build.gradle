@@ -1,22 +1,50 @@
-plugins {
-    id 'java'
+apply plugin: 'war'
+apply plugin: 'gwt'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://dl.bintray.com/steffenschaefer/maven'
+        }
+    }
+
+    dependencies {
+        classpath 'org.wisepersist:gwt-gradle-plugin:1.0.13'
+//        classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+    }
 }
 
 repositories {
+    maven {
+        name "sencha-gxt-repository"
+        url "https://maven.sencha.com/repo/gxt-gpl-release"
+    }
+    maven {
+        name "gradle-gwt-plugin-repository"
+        url 'http://dl.bintray.com/steffenschaefer/maven'
+    }
+
     mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:27.1-jre'
-    implementation group: 'com.extjs', name: 'gxt', version: '2.3.1-gwt22'
-
-
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+    compile 'com.sencha.gxt:gxt:4.0.0'
+    compile 'com.sencha.gxt:gxt-theme-triton:4.0.0'
+//	compile 'com.sencha.gxt:gxt-themebuilder:4.0.0'
+//    compile 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+//    compile gradleApi()
 }
 
-test {
-    useJUnitPlatform()
+gwt {
+    gwtVersion = '2.8.2'
+    modules 'ua.in.sz.gxt.Project'
+    maxHeapSize = "4096M";
+
+    superDev {
+        noPrecompile = true
+    }
 }
