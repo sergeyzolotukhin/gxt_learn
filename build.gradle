@@ -6,14 +6,10 @@ buildscript {
         jcenter()
         mavenLocal()
         mavenCentral()
-        maven {
-            url 'http://dl.bintray.com/steffenschaefer/maven'
-        }
     }
 
     dependencies {
         classpath 'org.wisepersist:gwt-gradle-plugin:1.0.13'
-//        classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
     }
 }
 
@@ -21,10 +17,6 @@ repositories {
     maven {
         name "sencha-gxt-repository"
         url "https://maven.sencha.com/repo/gxt-gpl-release"
-    }
-    maven {
-        name "gradle-gwt-plugin-repository"
-        url 'http://dl.bintray.com/steffenschaefer/maven'
     }
 
     mavenLocal()
@@ -34,9 +26,6 @@ repositories {
 dependencies {
     compile 'com.sencha.gxt:gxt:4.0.0'
     compile 'com.sencha.gxt:gxt-theme-triton:4.0.0'
-//	compile 'com.sencha.gxt:gxt-themebuilder:4.0.0'
-//    compile 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
-//    compile gradleApi()
 }
 
 gwt {

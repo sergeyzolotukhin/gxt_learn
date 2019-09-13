@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  When updating your version of GWT, you should also update this DTD reference,
-  so that your app can take advantage of the latest GWT module capabilities.
--->
+
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.2//EN"
   "http://gwtproject.org/doctype/2.8.2/gwt-module.dtd">
 <module rename-to='project'>
   
-  <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User'/>
-
-
-  <!-- Other module inherits                                      -->
   <inherits name='com.sencha.gxt.ui.GXT' />
 
-  <!-- Specify the app entry point class.                         -->
   <entry-point class='ua.in.sz.gxt.client.ProjectEntryPoint'/>
 
-  <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
   <source path='shared'/>
-  
-  
-  <!-- GXT Custom Theme, built with the themebuilder and in the src/main/theme source folder -->
-<!--  <inherits name="com.gawkat.customtheme.Theme" />-->
-  
-  
+
+  <inherits name='com.sencha.gxt.theme.triton.Theme' />
 </module>

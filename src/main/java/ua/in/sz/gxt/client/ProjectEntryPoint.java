@@ -5,9 +5,6 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
 public class ProjectEntryPoint implements EntryPoint {
 
   @Override
