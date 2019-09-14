@@ -32,7 +32,9 @@ gwt {
     gwtVersion = '2.8.2'
     modules 'ua.in.sz.gxt.Project'
     maxHeapSize = "4096M";
-
+    compiler {
+        style = "DETAILED"
+    }
     superDev {
         noPrecompile = true
     }
