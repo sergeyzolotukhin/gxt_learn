@@ -1,3 +1,4 @@
+apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'gwt'
 
@@ -28,8 +29,11 @@ dependencies {
     compile 'com.sencha.gxt:gxt-theme-triton:4.0.0'
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 gwt {
-    gwtVersion = '2.8.2'
+    gwtVersion = '2.8.1'
     modules 'ua.in.sz.gxt.Project'
     maxHeapSize = "4096M";
     compiler {
