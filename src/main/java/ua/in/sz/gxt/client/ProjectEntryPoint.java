@@ -12,17 +12,19 @@ import com.sencha.gxt.state.client.GridStateHandler;
 import com.sencha.gxt.state.client.StateManager;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.form.ComboBox;
 import com.sencha.gxt.widget.core.client.form.SimpleComboBox;
 import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
 import com.sencha.gxt.widget.core.client.grid.ColumnModel;
+import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
-import com.sencha.gxt.widget.core.client.grid.Grid;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 public class ProjectEntryPoint implements EntryPoint {
 
@@ -32,9 +34,10 @@ public class ProjectEntryPoint implements EntryPoint {
 	public void onModuleLoad() {
 		StateManager.get().setProvider(new CookieProvider("/", null, null, GXT.isSecure()));
 
-		RootPanel rootPanel = RootPanel.get();
+		Viewport viewport = new Viewport();
+		viewport.setWidget(this::createContentPanel);
 
-		rootPanel.add(this::createContentPanel);
+		RootPanel.get().add(viewport);
 	}
 
 	private ContentPanel createContentPanel() {
@@ -47,7 +50,7 @@ public class ProjectEntryPoint implements EntryPoint {
 	private VerticalLayoutContainer createLayout() {
 		VerticalLayoutContainer con = new VerticalLayoutContainer();
 		con.add(this::createToolBar, new VerticalLayoutContainer.VerticalLayoutData(1, -1));
-        con.add(createGrid(), new VerticalLayoutContainer.VerticalLayoutData(1, 1));
+		con.add(createGrid(), new VerticalLayoutContainer.VerticalLayoutData(1, 1));
 		return con;
 	}
 
@@ -72,14 +75,6 @@ public class ProjectEntryPoint implements EntryPoint {
 
 	private Grid<Stock> createGrid() {
 		Grid<Stock> grid = new Grid<Stock>(createStore(), createColumnModel());
-		grid.setAllowTextSelection(false);
-//		grid.getView().setAutoExpandColumn(nameCol);
-		grid.getView().setStripeRows(true);
-		grid.getView().setColumnLines(true);
-		grid.setBorders(false);
-		grid.setColumnReordering(true);
-
-		grid.setStateful(true);
 		grid.setStateId("gridExample");
 
 		GridStateHandler<Stock> state = new GridStateHandler<Stock>(grid);
